@@ -58,5 +58,5 @@ Docker 部署：
 
 ```bash
 docker build -t alexsun-tools .
-docker run -d -p 3000:3000 alexsun-tools
+docker run -d -p 3039:3000 alexsun-tools
 ```

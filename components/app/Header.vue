@@ -8,7 +8,16 @@
           </svg>
         </label>
         <ul tabindex="0" class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow">
-          <li><a>{{ $t('homePage') }}</a></li>
+          <li>
+            <NuxtLink to="/">
+              {{ $t('homePage') }}
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/diff">
+              {{ $t('diffTool') }}
+            </NuxtLink>
+          </li>
         </ul>
       </div>
     </div>
