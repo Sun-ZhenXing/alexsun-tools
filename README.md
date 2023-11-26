@@ -2,6 +2,11 @@
 
 ## 1. 项目介绍
 
+使用 Nuxt3 开发的工具合集，包含以下工具：
+
+- [x] Diff 工具，比较代码差异，基于 [nuxt-monaco-editor](https://github.com/e-chan1007/nuxt-monaco-editor)
+- [x] 从剪切板粘贴图片
+
 ## 2. 环境要求
 
 需要安装 `pnpm` 8+，且要求 Node.js >= 16，安装方法：

@@ -1,5 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+    },
+  },
   devtools: {
     enabled: false,
   },
@@ -33,6 +39,11 @@ export default defineNuxtConfig({
       codeEditor: 'MonacoEditor',
       diffEditor: 'MonacoDiffEditor',
     },
+  },
+  colorMode: {
+    preference: 'system', // default theme 'system'
+    dataValue: 'theme', // activate data-theme in <html> tag
+    classSuffix: '',
   },
   linkChecker: {
     enabled: false,
