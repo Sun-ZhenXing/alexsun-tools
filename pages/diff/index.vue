@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import type * as Monaco from 'monaco-editor'
+import type { editor as MonacoEditor } from 'monaco-editor'
 
 const language = ref('text')
 const isInlineView = ref(false)
-const editor = shallowRef<Monaco.editor.IStandaloneDiffEditor | null>(null)
+const editor = shallowRef<MonacoEditor.IStandaloneDiffEditor | null>(null)
 const { t } = useI18n()
 
 useHead({
   title: t('diffTool'),
 })
 
-const options = computed<Monaco.editor.IStandaloneDiffEditorConstructionOptions>(() => {
+const options = computed<MonacoEditor.IStandaloneDiffEditorConstructionOptions>(() => {
   return {
     minimap: { enabled: true },
     theme: 'vs-dark',
@@ -25,30 +25,9 @@ if (!import.meta.env.SSR) {
   })
 }
 
-function setEditor(e: Monaco.editor.IStandaloneDiffEditor) {
+function setEditor(e: MonacoEditor.IStandaloneDiffEditor) {
   editor.value = e
 }
-
-// Fix BUG: https://github.com/e-chan1007/nuxt-monaco-editor/issues/39
-watch(() => language.value, () => {
-  if (!editor.value)
-    return
-  const monaco = useMonaco()!
-  const originalModel = editor.value.getModel()?.original
-  const modifiedModel = editor.value.getModel()?.modified
-  const originalValue = originalModel?.getValue() || ''
-  const modifiedValue = modifiedModel?.getValue() || ''
-  if (originalModel)
-    originalModel.dispose()
-  if (modifiedModel)
-    modifiedModel.dispose()
-  const newOriginalModel = monaco.editor.createModel(originalValue, language.value)
-  const newModifiedModel = monaco.editor.createModel(modifiedValue, language.value)
-  editor.value.setModel({
-    original: newOriginalModel,
-    modified: newModifiedModel,
-  })
-})
 </script>
 
 <template>
@@ -81,6 +60,6 @@ watch(() => language.value, () => {
         </label>
       </div>
     </div>
-    <MonacoDiffEditor :options="options" class="h-full w-full" @load="setEditor" />
+    <MonacoDiffEditor :lang="language" :options="options" class="h-full w-full" @load="setEditor" />
   </div>
 </template>

@@ -5,6 +5,7 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
     },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
   devtools: {
     enabled: false,
@@ -48,4 +49,7 @@ export default defineNuxtConfig({
   linkChecker: {
     enabled: false,
   },
+  css: [
+    '~/assets/styles/common.scss',
+  ],
 })
