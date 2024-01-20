@@ -14,6 +14,7 @@ export default {
   daisyui: {
     logs: false,
     themes: [
+      'system',
       'light',
       'dark',
       'cupcake',

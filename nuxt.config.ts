@@ -14,12 +14,13 @@ export default defineNuxtConfig({
     // UI Frameworks
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
+    'nuxt-icon',
 
     // Libraries
     'nuxt-monaco-editor',
 
     // Router
-    'nuxt-typed-router',
+    // 'nuxt-typed-router',
 
     // State management
     '@pinia/nuxt',
@@ -33,8 +34,37 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
 
     // SEO
-    '@nuxtseo/module',
+    '@nuxtjs/seo',
   ],
+  i18n: {
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    },
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        iso: 'en-US',
+      },
+      {
+        code: 'zh',
+        name: '简体中文',
+        iso: 'zh-CN',
+      },
+      {
+        code: 'tw',
+        name: '繁體中文',
+        iso: 'zh-TW',
+      },
+      {
+        code: 'ja',
+        name: '日本語',
+        iso: 'ja-JP',
+      },
+    ],
+  },
   monacoEditor: {
     componentName: {
       codeEditor: 'MonacoEditor',

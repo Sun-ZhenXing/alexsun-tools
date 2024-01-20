@@ -1,5 +1,5 @@
 # Builder image
-FROM node:20.9.0-bookworm as builder
+FROM node:20.11.0-bookworm as builder
 
 WORKDIR /app
 
@@ -16,7 +16,7 @@ RUN npm -v \
     && pnpm build
 
 # Runtime image
-FROM node:20.9.0-bookworm-slim
+FROM node:20.11.0-bookworm-slim
 
 ENV NODE_OPTIONS=--max-old-space-size=4096
 
