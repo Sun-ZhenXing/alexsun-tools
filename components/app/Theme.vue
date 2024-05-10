@@ -110,10 +110,10 @@ zh:
   dark: 黑暗
   cupcake: 纸杯蛋糕
   bumblebee: 熊蜂
-  emerald: 翡翠的
+  emerald: 翡翠
   corporate: 公司
   synthwave: 合成波
-  retro: 复古的
+  retro: 复古
   cyberpunk: 赛博朋克
   valentine: 情人
   halloween: 万圣节前夕
@@ -145,10 +145,10 @@ tw:
   dark: 黑暗
   cupcake: 紙杯蛋糕
   bumblebee: 熊蜂
-  emerald: 翡翠的
+  emerald: 翡翠
   corporate: 公司
   synthwave: 合成波
-  retro: 復古的
+  retro: 復古
   cyberpunk: 賽博朋克
   valentine: 情人
   halloween: 萬聖節前夕
@@ -165,7 +165,7 @@ tw:
   cmyk: CMYK
   autumn: 秋天
   business: 商業
-  acid: 酸的
+  acid: 酸性
   lemonade: 檸檬水
   night: 夜
   coffee: 咖啡

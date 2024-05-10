@@ -2,7 +2,6 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "antfu.iconify",
-    "Vue.vscode-typescript-vue-plugin",
     "antfu.unocss",
     "Vue.volar"
   ]
