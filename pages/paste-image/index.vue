@@ -4,6 +4,7 @@ import LogoSvg from '~/assets/images/2-1000-min.svg'
 const img = ref<HTMLImageElement | null>(null)
 const { t } = useI18n({ useScope: 'local' })
 
+// @ts-expect-error environment variable injected by Vite
 if (!import.meta.env.SSR) {
   useEventListener(document, 'paste', (event) => {
     const items = event.clipboardData?.items

@@ -15,6 +15,7 @@ const options = computed<MonacoEditor.IStandaloneDiffEditorConstructionOptions>(
   }
 })
 
+// @ts-expect-error environment variable injected by Vite
 if (!import.meta.env.SSR) {
   useResizeObserver(window.document.body, () => {
     editor.value?.layout()

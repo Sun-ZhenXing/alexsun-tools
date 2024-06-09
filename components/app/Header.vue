@@ -14,7 +14,7 @@ const { t } = useI18n({ useScope: 'local' })
 </script>
 
 <template>
-  <div class="navbar h-[4rem] bg-base-100">
+  <div class="navbar h-16 bg-base-100">
     <div class="navbar-start">
       <div class="dropdown">
         <label tabindex="0" class="btn btn-circle btn-ghost">
@@ -36,6 +36,11 @@ const { t } = useI18n({ useScope: 'local' })
           <li>
             <NuxtLink :to="localePath('/paste-image')">
               {{ t('paste_image') }}
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink :to="localePath('/ieee754')">
+              IEEE 754
             </NuxtLink>
           </li>
         </ul>

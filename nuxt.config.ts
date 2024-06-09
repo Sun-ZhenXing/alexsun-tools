@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
   },
   devtools: {
-    enabled: false,
+    enabled: true,
   },
   modules: [
     // UI Frameworks
@@ -34,7 +34,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
 
     // SEO
-    '@nuxtjs/seo',
+    // '@nuxtjs/seo',
   ],
   i18n: {
     detectBrowserLanguage: {
@@ -76,9 +76,9 @@ export default defineNuxtConfig({
     dataValue: 'theme', // activate data-theme in <html> tag
     classSuffix: '',
   },
-  linkChecker: {
-    enabled: false,
-  },
+  // linkChecker: {
+  //   enabled: false,
+  // },
   css: [
     '~/assets/styles/common.scss',
   ],

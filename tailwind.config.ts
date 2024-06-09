@@ -1,7 +1,7 @@
 import daisyui from 'daisyui'
 import type { Config } from 'tailwindcss'
 
-export default {
+export default <Config>{
   content: [
     './components/*.{html,js,ts,vue}',
     './layouts/*.{html,js,ts,vue}',
@@ -49,4 +49,4 @@ export default {
       'sunset',
     ],
   },
-} satisfies Config
+}
