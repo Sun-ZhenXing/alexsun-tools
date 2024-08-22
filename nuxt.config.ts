@@ -7,14 +7,16 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: 'page', mode: 'out-in' },
   },
+
   devtools: {
     enabled: true,
   },
+
   modules: [
     // UI Frameworks
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
-    'nuxt-icon',
+    '@nuxt/icon',
 
     // Libraries
     'nuxt-monaco-editor',
@@ -36,6 +38,7 @@ export default defineNuxtConfig({
     // SEO
     // '@nuxtjs/seo',
   ],
+
   i18n: {
     detectBrowserLanguage: {
       useCookie: true,
@@ -46,40 +49,47 @@ export default defineNuxtConfig({
       {
         code: 'en',
         name: 'English',
-        iso: 'en-US',
+        language: 'en-US',
       },
       {
         code: 'zh',
         name: '简体中文',
-        iso: 'zh-CN',
+        language: 'zh-CN',
       },
       {
         code: 'tw',
         name: '繁體中文',
-        iso: 'zh-TW',
+        language: 'zh-TW',
       },
       {
         code: 'ja',
         name: '日本語',
-        iso: 'ja-JP',
+        language: 'ja-JP',
       },
     ],
+    strategy: 'prefix_except_default',
+    defaultLocale: 'en',
   },
+
   monacoEditor: {
     componentName: {
       codeEditor: 'MonacoEditor',
       diffEditor: 'MonacoDiffEditor',
     },
   },
+
   colorMode: {
     preference: 'system', // default theme 'system'
     dataValue: 'theme', // activate data-theme in <html> tag
     classSuffix: '',
   },
+
   // linkChecker: {
   //   enabled: false,
   // },
   css: [
     '~/assets/styles/common.scss',
   ],
+
+  compatibilityDate: '2024-08-22',
 })

@@ -4,6 +4,8 @@ const bin = ref('')
 const hex = ref('')
 const real = ref(Number.NaN)
 
+const { t } = useI18n({ useScope: 'local' })
+
 function float32ToUint32(f: number): number {
   const buffer = new ArrayBuffer(4)
   const view = new DataView(buffer)
@@ -97,39 +99,74 @@ function textChanged(type: string = 'text') {
   <div>
     <label class="form-control w-full max-w-xs">
       <div class="label">
-        <span class="label-text">输入值</span>
+        <span class="label-text">{{ t('input_value') }}</span>
       </div>
       <input
-        v-model="text" type="text" placeholder="输入浮点数"
+        v-model="text" type="text" :placeholder="t('input_float')"
         class="input input-bordered input-primary w-full max-w-xs font-mono" @input="textChanged('text')"
       >
     </label>
     <label class="form-control w-full max-w-xs">
       <div class="label">
-        <span class="label-text">二进制表示</span>
+        <span class="label-text">{{ t('binary_representation') }}</span>
       </div>
       <input
-        v-model="bin" type="text" placeholder="二进制"
+        v-model="bin" type="text" :placeholder="t('binary')"
         class="input input-bordered input-primary w-full max-w-xs font-mono" @input="textChanged('bin')"
       >
     </label>
     <label class="form-control w-full max-w-xs">
       <div class="label">
-        <span class="label-text">十六进制表示</span>
+        <span class="label-text">{{ t('hexadecimal_representation') }}</span>
       </div>
       <input
-        v-model="hex" type="text" placeholder="十六进制"
+        v-model="hex" type="text" :placeholder="t('hexadecimal')"
         class="input input-bordered input-primary w-full max-w-xs font-mono" @input="textChanged('hex')"
       >
     </label>
     <label class="form-control w-full max-w-xs">
       <div class="label">
-        <span class="label-text">原始值</span>
+        <span class="label-text">{{ t('original_value') }}</span>
       </div>
       <input
-        v-model="real" type="text" placeholder="原始值" class="input input-bordered w-full max-w-xs font-mono"
+        v-model="real" type="text" :placeholder="t('original_value')" class="input input-bordered w-full max-w-xs font-mono"
         readonly
       >
     </label>
   </div>
 </template>
+
+<i18n lang="yaml">
+en:
+  input_value: Input Value
+  input_float: Input Float
+  binary_representation: Binary Representation
+  binary: Binary
+  hexadecimal_representation: Hexadecimal Representation
+  hexadecimal: Hexadecimal
+  original_value: Original Value
+zh:
+  input_value: 输入值
+  input_float: 输入浮点数
+  binary_representation: 二进制表示
+  binary: 二进制
+  hexadecimal_representation: 十六进制表示
+  hexadecimal: 十六进制
+  original_value: 原始值
+tw:
+  input_value: 輸入值
+  input_float: 輸入浮點數
+  binary_representation: 二進制表示
+  binary: 二進制
+  hexadecimal_representation: 十六進制表示
+  hexadecimal: 十六進制
+  original_value: 原始值
+ja:
+  input_value: 入力値
+  input_float: 入力浮動小数点数
+  binary_representation: 二進表現
+  binary: 二進
+  hexadecimal_representation: 十六進表現
+  hexadecimal: 十六進
+  original_value: 元の値
+</i18n>

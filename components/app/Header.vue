@@ -43,6 +43,11 @@ const { t } = useI18n({ useScope: 'local' })
               IEEE 754
             </NuxtLink>
           </li>
+          <li>
+            <NuxtLink :to="localePath('/cron-parser')">
+              {{ t('cron_parser') }}
+            </NuxtLink>
+          </li>
         </ul>
       </div>
     </div>
@@ -76,22 +81,26 @@ en:
   home_page: Home Page
   diff_tool: Diff Tool
   paste_image: Paste Image
+  cron_parser: Cron Parser
 zh:
   test: 测试
   app_name: 鸭梨工具包
   home_page: 首页
   diff_tool: 差异对比
   paste_image: 粘贴图片
+  cron_parser: Cron 解析器
 tw:
   test: 測試
   app_name: 鴨梨工具包
   home_page: 首頁
   diff_tool: 差異對比
   paste_image: 粘貼圖片
+  cron_parser: Cron 解析器
 ja:
   test: テスト
   app_name: ヤリツール
   home_page: ホームページ
   diff_tool: 差分ツール
   paste_image: 画像を貼り付ける
+  cron_parser: Cron パーサー
 </i18n>

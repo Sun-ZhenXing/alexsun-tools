@@ -6,18 +6,22 @@
 
 - [x] Diff 工具，比较代码差异，基于 [nuxt-monaco-editor](https://github.com/e-chan1007/nuxt-monaco-editor)
 - [x] 从剪切板粘贴图片
+- [x] IEEE754 可视化工具
+- [ ] JSON to 代码
+- [ ] JSON / YAML / XML 转换
+- [ ] Base64 / URL 编码解码
+- [ ] 二维码生成
+- [ ] Crontab 表达式解析和生成
 
 ## 2. 环境要求
 
-需要安装 `pnpm` 8+，且要求 Node.js >= 16，安装方法：
+- Node.js >= 20.x
+- pnpm >= 9.x
+
+建议使用 `corepack` 安装最新版本的 `pnpm`：
 
 ```bash
-npm i -g pnpm
-```
-
-或者在启用 `corepack` 时使用 `corepack` 安装最新版本：
-
-```bash
+corepack enable
 corepack prepare pnpm@latest --activate
 ```
 
@@ -25,18 +29,6 @@ corepack prepare pnpm@latest --activate
 
 ```bash
 pnpm i
-```
-
-升级全部依赖项目：
-
-```bash
-pnpm up
-```
-
-删除不需要的依赖：
-
-```bash
-pnpm store prune
 ```
 
 ## 3. 开发和部署

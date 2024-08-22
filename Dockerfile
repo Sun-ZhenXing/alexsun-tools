@@ -1,29 +1,23 @@
+ARG NODE_VERSION=22.2.0
+ARG NPM_REGISTRY=https://registry.npmjs.org/
+
 # Builder image
-FROM node:20.11.0-bookworm as builder
-
+FROM node:${NODE_VERSION}-bookworm as builder
+ARG NPM_REGISTRY
 WORKDIR /app
-
 COPY . ./
-
 ENV NODE_OPTIONS=--max-old-space-size=4096
-
 RUN npm -v \
-    && npm config set registry https://registry.npmmirror.com/ \
+    && npm config set registry ${NPM_REGISTRY} \
     && npm install -g pnpm \
     && pnpm -v \
-    && pnpm config set registry https://registry.npmmirror.com/ \
-    && pnpm install \
-    && pnpm build
+    && pnpm config set registry ${NPM_REGISTRY} \
+    && pnpm install
+RUN pnpm build
 
 # Runtime image
-FROM node:20.11.0-bookworm-slim
-
-ENV NODE_OPTIONS=--max-old-space-size=4096
-
+FROM node:${NODE_VERSION}-bookworm-slim
 WORKDIR /app
-
-COPY --from=builder /app/.output ./.output/
-
+COPY --from=builder /app/.output/ ./.output/
 EXPOSE 3000
-
 CMD ["node", "./.output/server/index.mjs"]
