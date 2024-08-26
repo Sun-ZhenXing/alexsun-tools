@@ -4,13 +4,14 @@ import { parseExpression } from 'cron-parser'
 const { t } = useI18n({ useScope: 'local' })
 const cron = ref('* * * * * *')
 const nextList = ref<string[]>([])
+const dayjs = useDayjs()
 
 watch(cron, (value) => {
   try {
     const interval = parseExpression(value)
     nextList.value = []
     for (let i = 0; i < 5; i++) {
-      nextList.value.push(interval.next().toString())
+      nextList.value.push(dayjs(interval.next().toDate()).format('YYYY-MM-DD HH:mm:ss'))
     }
   }
   catch (error) {

@@ -10,10 +10,16 @@ useHead({
     },
   ],
 })
+
+onMounted(() => {
+  updateDayjsI18n()
+})
 </script>
 
 <template>
   <div>
+    <NuxtRouteAnnouncer />
+    <NuxtLoadingIndicator :duration="300" color="oklch(var(--p)/0.5)" class="shadow-primary" />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

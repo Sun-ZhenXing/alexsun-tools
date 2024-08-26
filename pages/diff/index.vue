@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { editor as MonacoEditor } from 'monaco-editor'
+import { MONACO_LANGUAGES } from '~/utils/settings'
 
 const language = ref('text')
 const isInlineView = ref(false)

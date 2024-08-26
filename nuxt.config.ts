@@ -20,9 +20,7 @@ export default defineNuxtConfig({
 
     // Libraries
     'nuxt-monaco-editor',
-
-    // Router
-    // 'nuxt-typed-router',
+    'dayjs-nuxt',
 
     // State management
     '@pinia/nuxt',
@@ -35,8 +33,8 @@ export default defineNuxtConfig({
     // I18n
     '@nuxtjs/i18n',
 
-    // SEO
-    // '@nuxtjs/seo',
+    // PWA
+    '@vite-pwa/nuxt',
   ],
 
   i18n: {
