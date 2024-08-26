@@ -48,6 +48,11 @@ const { t } = useI18n({ useScope: 'local' })
               {{ t('cron_parser') }}
             </NuxtLink>
           </li>
+          <li>
+            <NuxtLink :to="localePath('/jsonpath')">
+              {{ t('jsonpath') }}
+            </NuxtLink>
+          </li>
         </ul>
       </div>
     </div>
@@ -82,6 +87,7 @@ en:
   diff_tool: Diff Tool
   paste_image: Paste Image
   cron_parser: Cron Parser
+  jsonpath: JSONPath Parser
 zh:
   test: 测试
   app_name: 鸭梨工具包
@@ -89,6 +95,7 @@ zh:
   diff_tool: 差异对比
   paste_image: 粘贴图片
   cron_parser: Cron 解析器
+  jsonpath: JSONPath 解析器
 tw:
   test: 測試
   app_name: 鴨梨工具包
@@ -96,6 +103,7 @@ tw:
   diff_tool: 差異對比
   paste_image: 粘貼圖片
   cron_parser: Cron 解析器
+  jsonpath: JSONPath 解析器
 ja:
   test: テスト
   app_name: ヤリツール
@@ -103,4 +111,5 @@ ja:
   diff_tool: 差分ツール
   paste_image: 画像を貼り付ける
   cron_parser: Cron パーサー
+  jsonpath: JSONPath パーサー
 </i18n>

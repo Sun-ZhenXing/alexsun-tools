@@ -6,10 +6,15 @@ const isInlineView = ref(false)
 const editor = shallowRef<MonacoEditor.IStandaloneDiffEditor | null>(null)
 const { t } = useI18n({ useScope: 'local' })
 
+const dark = useDark()
+const colorMode = useColorMode()
+
+const isDark = computed<boolean>(() => colorMode.value === 'dark' || colorMode.preference === 'system' && dark.value)
+
 const options = computed<MonacoEditor.IStandaloneDiffEditorConstructionOptions>(() => {
   return {
     minimap: { enabled: true },
-    theme: 'vs-dark',
+    theme: isDark.value ? 'vs-dark' : 'vs-light',
     renderSideBySide: !isInlineView.value,
     originalEditable: true,
   }
@@ -30,25 +35,18 @@ function setEditor(e: MonacoEditor.IStandaloneDiffEditor) {
 <template>
   <div class="flex h-full flex-col bg-base-200">
     <div class="flex flex-row items-center">
-      <div class="dropdown p-2">
-        <label tabindex="0" class="btn-rounded btn m-1 bg-base-300">{{ t('settings') }}</label>
-        <ul tabindex="0" class="dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow">
-          <li>
-            <div class="form-control w-full max-w-xs">
-              <label class="label">
-                <span class="label-text">{{ t('language') }}</span>
-              </label>
-              <select v-model="language" class="select select-primary w-full max-w-xs">
-                <option disabled selected>
-                  {{ t('language') }}
-                </option>
-                <option v-for="item in MONACO_LANGUAGES" :key="item">
-                  {{ item }}
-                </option>
-              </select>
-            </div>
-          </li>
-        </ul>
+      <div class="form-control w-full max-w-xs">
+        <label class="label">
+          <span class="label-text">{{ t('language') }}</span>
+        </label>
+        <select v-model="language" class="select select-primary w-full max-w-xs">
+          <option disabled selected>
+            {{ t('language') }}
+          </option>
+          <option v-for="item in MONACO_LANGUAGES" :key="item">
+            {{ item }}
+          </option>
+        </select>
       </div>
       <div class="form-control">
         <label class="label cursor-pointer">

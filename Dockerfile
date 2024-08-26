@@ -2,7 +2,7 @@ ARG NODE_VERSION=22.2.0
 ARG NPM_REGISTRY=https://registry.npmjs.org/
 
 # Builder image
-FROM node:${NODE_VERSION}-bookworm as builder
+FROM node:${NODE_VERSION}-bookworm AS builder
 ARG NPM_REGISTRY
 WORKDIR /app
 COPY . ./

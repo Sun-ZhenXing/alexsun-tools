@@ -1,6 +1,7 @@
 {
   "name": "nuxt-alexsun-tools",
   "type": "module",
+  "version": "0.8.0",
   "private": true,
   "packageManager": "pnpm@9.7.1",
   "engines": {
@@ -37,6 +38,7 @@
     "daisyui": "^4.12.10",
     "eslint": "^9.9.0",
     "eslint-plugin-tailwindcss": "^3.17.4",
+    "jsonpath-plus": "^9.0.0",
     "monaco-editor": "^0.50.0",
     "nuxt": "^3.12.4",
     "nuxt-icon": "1.0.0-beta.7",

@@ -1,0 +1,15 @@
+services:
+  web:
+    image: alexsun-tools:${VERSION:-latest}
+    container_name: alexsun-tools
+    restart: unless-stopped
+    ports:
+      - "3039:3000"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
