@@ -1,14 +1,9 @@
 <script setup lang="ts">
-import type { LocaleObject } from '@nuxtjs/i18n'
 import tailwindConfig from '~/tailwind.config'
 
-const { locales, locale } = useI18n()
+const { locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 const localePath = useLocalePath()
-
-const availableLocales = computed(() => {
-  return (locales.value as LocaleObject[]).filter(i => i.code !== locale.value)
-})
 
 const { t } = useI18n({ useScope: 'local' })
 </script>
@@ -72,7 +67,7 @@ const { t } = useI18n({ useScope: 'local' })
           <Icon name="fluent:local-language-zi-24-regular" size="24" />
         </label>
         <ul tabindex="0" class="menu dropdown-content z-30 mt-4 w-52 rounded-box bg-base-100 p-2 shadow">
-          <li v-for="l in availableLocales" :key="l.code">
+          <li v-for="l in locales" :key="l.code">
             <NuxtLink :to="switchLocalePath(l.code)">
               {{ l.name }}
             </NuxtLink>

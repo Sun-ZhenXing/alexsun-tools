@@ -13,8 +13,8 @@ const colorMode = useColorMode()
 
 const isDark = computed<boolean>(() => colorMode.value === 'dark' || colorMode.preference === 'system' && dark.value)
 
-const editorLeft = shallowRef<MonacoEditor.IStandaloneDiffEditor | null>(null)
-const editorRight = shallowRef<MonacoEditor.IStandaloneDiffEditor | null>(null)
+const editorLeft = shallowRef<MonacoEditor.IStandaloneCodeEditor | null>(null)
+const editorRight = shallowRef<MonacoEditor.IStandaloneCodeEditor | null>(null)
 
 const options = computed<MonacoEditor.IStandaloneEditorConstructionOptions>(() => {
   return {
@@ -45,11 +45,11 @@ if (!import.meta.env.SSR) {
   })
 }
 
-function setEditorLeft(e: MonacoEditor.IStandaloneDiffEditor) {
+function setEditorLeft(e: MonacoEditor.IStandaloneCodeEditor) {
   editorLeft.value = e
 }
 
-function setEditorRight(e: MonacoEditor.IStandaloneDiffEditor) {
+function setEditorRight(e: MonacoEditor.IStandaloneCodeEditor) {
   editorRight.value = e
 }
 
@@ -57,8 +57,8 @@ watch(() => [value.value, path.value, tabLength.value], update, { immediate: tru
 </script>
 
 <template>
-  <div class="flex h-full flex-col bg-base-200">
-    <div class="flex w-full flex-row items-center">
+  <div class="flex h-full flex-col overflow-hidden bg-base-200">
+    <div class="flex h-32 w-full flex-row items-center">
       <label class="form-control m-4 w-full max-w-xs">
         <div class="label">
           <span class="label-text">JSONPath</span>
@@ -78,8 +78,8 @@ watch(() => [value.value, path.value, tabLength.value], update, { immediate: tru
       </label>
     </div>
     <div class="flex grow">
-      <MonacoEditor v-model="value" lang="json" class="h-full w-1/2" :options="options" @load="setEditorLeft" />
-      <MonacoEditor v-model="result" lang="json" class="h-full w-1/2" :options="options" @load="setEditorRight" />
+      <MonacoEditor v-model="value" lang="json" class="h-[calc(100svh-12rem)] w-1/2" :options="options" @load="setEditorLeft" />
+      <MonacoEditor v-model="result" lang="json" class="h-[calc(100svh-12rem)] w-1/2" :options="options" @load="setEditorRight" />
     </div>
   </div>
 </template>

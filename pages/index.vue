@@ -1,16 +1,20 @@
+<script setup lang="ts">
+const { t } = useI18n({ useScope: 'local' })
+</script>
+
 <template>
   <div>
     <div class="hero min-h-screen bg-base-200">
       <div class="hero-content text-center">
         <div class="max-w-md">
           <h1 class="text-5xl font-bold">
-            Hello there
+            {{ t('hello_there') }}
           </h1>
           <p class="py-6">
-            Just a demo page!
+            {{ t('demo') }}
           </p>
           <button class="btn btn-primary">
-            Get Started
+            {{ t('get_started') }}
           </button>
         </div>
       </div>
@@ -29,7 +33,7 @@
       </aside>
       <nav>
         <header class="footer-title">
-          Social
+          {{ t('social') }}
         </header>
         <div class="grid grid-flow-col gap-4">
           <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
@@ -52,3 +56,26 @@
     </footer>
   </div>
 </template>
+
+<i18n lang="yaml">
+en:
+  hello_there: Hello there
+  demo: Just a demo page!
+  get_started: Get Started
+  social: Social
+zh:
+  hello_there: 你好
+  demo: 这只是一个演示页面！
+  get_started: 开始
+  social: 社交
+tw:
+  hello_there: 你好
+  demo: 這只是一個演示頁面！
+  get_started: 開始
+  social: 社交
+ja:
+  hello_there: こんにちは
+  demo: ただのデモページです！
+  get_started: 開始
+  social: ソーシャル
+</i18n>

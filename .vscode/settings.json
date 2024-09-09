@@ -62,5 +62,13 @@
     "json",
     "jsonc",
     "yaml"
+  ],
+  "cSpell.words": [
+    "nuxt",
+    "nuxtjs",
+    "pinia",
+    "qrcode",
+    "tailwindcss",
+    "vueuse"
   ]
 }

@@ -28,7 +28,6 @@ export default defineNuxtConfig({
 
     // Composables
     '@vueuse/nuxt',
-    '@nuxtjs/device',
 
     // I18n
     '@nuxtjs/i18n',
