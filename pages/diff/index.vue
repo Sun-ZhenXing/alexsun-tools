@@ -36,7 +36,7 @@ function setEditor(e: MonacoEditor.IStandaloneDiffEditor) {
 <template>
   <div class="flex h-full flex-col bg-base-200">
     <div class="flex flex-row items-center">
-      <div class="form-control w-full max-w-xs">
+      <div class="form-control w-full max-w-xs p-2">
         <label class="label">
           <span class="label-text">{{ t('language') }}</span>
         </label>
@@ -49,14 +49,16 @@ function setEditor(e: MonacoEditor.IStandaloneDiffEditor) {
           </option>
         </select>
       </div>
-      <div class="form-control">
+      <div class="form-control p-2">
         <label class="label cursor-pointer">
           <span class="label-text m-1">{{ t('show_inline') }}</span>
           <input v-model="isInlineView" type="checkbox" class="toggle toggle-secondary">
         </label>
       </div>
     </div>
-    <MonacoDiffEditor :lang="language" :options="options" class="size-full" @load="setEditor" />
+    <MonacoDiffEditor :lang="language" :options="options" class="size-full" @load="setEditor">
+      {{ t('loading') }}
+    </MonacoDiffEditor>
   </div>
 </template>
 
@@ -65,16 +67,20 @@ en:
   settings: Settings
   language: Language
   show_inline: Show Inline
+  loading: Loading...
 zh:
   settings: 设置
   language: 语言
   show_inline: 内联显示
+  loading: 加载中...
 tw:
   settings: 設置
   language: 語言
   show_inline: 內聯顯示
+  loading: 載入中...
 ja:
   settings: 設定
   language: 言語
   show_inline: インライン表示
+  loading: ロード中...
 </i18n>

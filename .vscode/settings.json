@@ -2,7 +2,7 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "python.analysis.typeCheckingMode": "basic",
   // Enable the ESlint flat config support
-  "eslint.experimental.useFlatConfig": true,
+  "eslint.useFlatConfig": true,
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
   "editor.formatOnSave": false,
@@ -64,11 +64,18 @@
     "yaml"
   ],
   "cSpell.words": [
+    "alexsun",
+    "antfu",
+    "curlconverter",
+    "daisyui",
+    "iconify",
     "nuxt",
     "nuxtjs",
+    "persistedstate",
     "pinia",
     "qrcode",
     "tailwindcss",
+    "Vite",
     "vueuse"
   ]
 }

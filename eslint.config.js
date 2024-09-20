@@ -1,12 +1,18 @@
 import antfu from '@antfu/eslint-config'
-import { FlatCompat } from '@eslint/eslintrc'
+import tailwind from 'eslint-plugin-tailwindcss'
 
-const compat = new FlatCompat()
-
-export default antfu({}, ...compat.config({
-  extends: ['plugin:tailwindcss/recommended'],
-  rules: {
-    'tailwindcss/no-custom-classname': 'off',
-    'tailwindcss/migration-from-tailwind-2': 'off',
+export default antfu(
+  {
+    formatters: true,
+    markdown: false,
+    typescript: {},
+    vue: true,
   },
-}))
+  ...tailwind.configs['flat/recommended'],
+  {
+    rules: {
+      'curly': ['error', 'all'],
+      'style/brace-style': ['error', '1tbs', { allowSingleLine: false }],
+    },
+  },
+)

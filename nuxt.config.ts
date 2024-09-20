@@ -88,5 +88,16 @@ export default defineNuxtConfig({
     '~/assets/styles/common.scss',
   ],
 
+  vite: {
+    optimizeDeps: {
+      esbuildOptions: {
+        target: 'es2022',
+      },
+    },
+    build: {
+      target: 'es2022',
+    },
+  },
+
   compatibilityDate: '2024-08-22',
 })

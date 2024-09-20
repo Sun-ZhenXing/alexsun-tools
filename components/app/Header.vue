@@ -53,6 +53,11 @@ const { t } = useI18n({ useScope: 'local' })
               {{ t('qrcode') }}
             </NuxtLink>
           </li>
+          <li>
+            <NuxtLink :to="localePath('/curlconverter')">
+              {{ t('curlconverter') }}
+            </NuxtLink>
+          </li>
         </ul>
       </div>
     </div>
@@ -89,6 +94,7 @@ en:
   cron_parser: Cron Parser
   jsonpath: JSONPath Parser
   qrcode: QR Code Generator
+  curlconverter: Curl Converter
 zh:
   test: 测试
   app_name: 鸭梨工具包
@@ -98,6 +104,7 @@ zh:
   cron_parser: Cron 解析器
   jsonpath: JSONPath 解析器
   qrcode: 二维码生成器
+  curlconverter: Curl 转换器
 tw:
   test: 測試
   app_name: 鴨梨工具包
@@ -107,6 +114,7 @@ tw:
   cron_parser: Cron 解析器
   jsonpath: JSONPath 解析器
   qrcode: 二維碼生成器
+  curlconverter: Curl 轉換器
 ja:
   test: テスト
   app_name: ヤリツール
@@ -115,5 +123,6 @@ ja:
   paste_image: 画像を貼り付ける
   cron_parser: Cron パーサー
   jsonpath: JSONPath パーサー
-  qrcode: QRコードジェネレーター
+  qrcode: QR コードジェネレーター
+  curlconverter: Curl コンバーター
 </i18n>

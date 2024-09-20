@@ -10,8 +10,8 @@
 - [ ] JSON to 代码
 - [ ] JSON / YAML / XML 转换
 - [ ] Base64 / URL 编码解码
-- [ ] 二维码生成
-- [ ] Crontab 表达式解析和生成
+- [x] 二维码生成
+- [x] Crontab 表达式解析和生成
 
 ## 2. 环境要求
 

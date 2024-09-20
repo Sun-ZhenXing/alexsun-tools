@@ -21,6 +21,8 @@ const options = computed<MonacoEditor.IStandaloneEditorConstructionOptions>(() =
     minimap: { enabled: true },
     theme: isDark.value ? 'vs-dark' : 'vs-light',
     originalEditable: true,
+    tabSize: typeof tabLength.value === 'number' ? tabLength.value : 2,
+    detectIndentation: false,
   }
 })
 
