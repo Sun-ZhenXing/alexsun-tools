@@ -50,7 +50,9 @@ watch(cron, (value) => {
           {{ item }}
         </li>
       </ul>
-      <p>{{ description }} - {{ locale }}</p>
+      <p>
+        {{ description }}
+      </p>
     </div>
     <div v-else class="p-8">
       <div class="alert alert-error">

@@ -1,0 +1,12 @@
+{
+  "name": "jsonpath",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "dependencies": {
+    "jsonpath-plus": "^10.0.0"
+  }
+}

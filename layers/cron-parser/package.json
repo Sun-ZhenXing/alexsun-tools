@@ -1,0 +1,13 @@
+{
+  "name": "cron-parser",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "dependencies": {
+    "cron-parser": "^4.9.0",
+    "cronstrue": "^2.50.0"
+  }
+}
