@@ -1,3 +1,10 @@
+export function useGlobalLocale() {
+  return useState(() => {
+    const { locale } = useI18n()
+    return locale.value
+  })
+}
+
 export function updateDayjsI18n(locale: string) {
   const dayjs = useDayjs()
   const isoCode = {

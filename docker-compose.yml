@@ -4,12 +4,12 @@ services:
     container_name: alexsun-tools
     restart: unless-stopped
     ports:
-      - "3039:3000"
+      - '3039:3000'
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     logging:
-      driver: "json-file"
+      driver: json-file
       options:
-        max-size: "10m"
-        max-file: "3"
+        max-size: 10m
+        max-file: '3'

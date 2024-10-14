@@ -9,8 +9,9 @@ const text = ref('text-to-encode')
 const qrcode = useQRCode(text)
 
 function download() {
-  if (!img.value || !img.value.src || !img.value.src.startsWith('data:'))
+  if (!img.value || !img.value.src || !img.value.src.startsWith('data:')) {
     return
+  }
   const link = document.createElement('a')
   link.href = img.value.src
   link.download = 'image.png'

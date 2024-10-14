@@ -1,5 +1,5 @@
-import daisyui from 'daisyui'
 import type { Config } from 'tailwindcss'
+import daisyui from 'daisyui'
 
 export default <Config>{
   content: [

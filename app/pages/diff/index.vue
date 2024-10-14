@@ -10,7 +10,7 @@ const { t } = useI18n({ useScope: 'local' })
 const dark = useDark()
 const colorMode = useColorMode()
 
-const isDark = computed<boolean>(() => colorMode.value === 'dark' || colorMode.preference === 'system' && dark.value)
+const isDark = computed<boolean>(() => colorMode.value === 'dark' || (colorMode.preference === 'system' && dark.value))
 
 const options = computed<MonacoEditor.IStandaloneDiffEditorConstructionOptions>(() => {
   return {
@@ -21,7 +21,6 @@ const options = computed<MonacoEditor.IStandaloneDiffEditorConstructionOptions>(
   }
 })
 
-// @ts-expect-error environment variable injected by Vite
 if (!import.meta.env.SSR) {
   useResizeObserver(window.document.body, () => {
     editor.value?.layout()

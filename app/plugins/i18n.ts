@@ -6,5 +6,7 @@ import 'dayjs/locale/en'
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook('i18n:localeSwitched', ({ newLocale }) => {
     updateDayjsI18n(newLocale)
+    const locale = useGlobalLocale()
+    locale.value = newLocale
   })
 })

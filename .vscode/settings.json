@@ -63,9 +63,11 @@
     "jsonc",
     "yaml"
   ],
+  "files.eol": "\n",
   "cSpell.words": [
     "alexsun",
     "antfu",
+    "cronstrue",
     "curlconverter",
     "daisyui",
     "iconify",

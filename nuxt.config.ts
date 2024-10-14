@@ -1,5 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  future: {
+    compatibilityVersion: 4,
+  },
+
+  compatibilityDate: '2024-10-14',
+
   app: {
     head: {
       charset: 'utf-8',
@@ -98,6 +104,4 @@ export default defineNuxtConfig({
       target: 'es2022',
     },
   },
-
-  compatibilityDate: '2024-08-22',
 })

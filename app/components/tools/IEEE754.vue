@@ -57,8 +57,7 @@ function textChanged(type: string = 'text') {
     bin.value = uintToBin(u)
     hex.value = uintToHex(u)
     real.value = uint32ToFloat32(u)
-  }
-  else if (type === 'bin') {
+  } else if (type === 'bin') {
     if (bin.value.length > 32) {
       bin.value = bin.value.slice(0, 32)
     }
@@ -74,8 +73,7 @@ function textChanged(type: string = 'text') {
     const u = binToUint32(bin.value)
     hex.value = uintToHex(u)
     real.value = uint32ToFloat32(u)
-  }
-  else if (type === 'hex') {
+  } else if (type === 'hex') {
     if (hex.value.length > 8) {
       hex.value = hex.value.slice(0, 8)
     }

@@ -1,10 +1,31 @@
 <script setup lang="ts">
 import { parseExpression } from 'cron-parser'
+import cronstrue from 'cronstrue'
+import 'cronstrue/locales/en'
+import 'cronstrue/locales/ja'
+import 'cronstrue/locales/zh_CN'
+import 'cronstrue/locales/zh_TW'
 
 const { t } = useI18n({ useScope: 'local' })
+const locale = useGlobalLocale()
+
 const cron = ref('* * * * * *')
 const nextList = ref<string[]>([])
 const dayjs = useDayjs()
+
+const description = computed(() => {
+  try {
+    const localeCode = {
+      zh: 'zh_CN',
+      tw: 'zh_TW',
+      ja: 'ja',
+      en: 'en',
+    }[locale.value]
+    return cronstrue.toString(cron.value, { locale: localeCode })
+  } catch {
+    return t('invalid_cron')
+  }
+})
 
 watch(cron, (value) => {
   try {
@@ -13,8 +34,7 @@ watch(cron, (value) => {
     for (let i = 0; i < 5; i++) {
       nextList.value.push(dayjs(interval.next().toDate()).format('YYYY-MM-DD HH:mm:ss'))
     }
-  }
-  catch (error) {
+  } catch (error) {
     nextList.value = []
     console.error(error)
   }
@@ -24,11 +44,14 @@ watch(cron, (value) => {
 <template>
   <div class="flex h-full min-h-48 flex-col items-center justify-center">
     <input v-model="cron" :placeholder="t('input_cron')" class="input input-bordered input-primary w-full max-w-xs">
-    <ul v-if="nextList.length !== 0" class="steps steps-vertical">
-      <li v-for="item in nextList" :key="item" class="step step-primary">
-        {{ item }}
-      </li>
-    </ul>
+    <div v-if="nextList.length !== 0">
+      <ul class="steps steps-vertical">
+        <li v-for="item in nextList" :key="item" class="step step-primary">
+          {{ item }}
+        </li>
+      </ul>
+      <p>{{ description }} - {{ locale }}</p>
+    </div>
     <div v-else class="p-8">
       <div class="alert alert-error">
         {{ t('invalid_cron') }}

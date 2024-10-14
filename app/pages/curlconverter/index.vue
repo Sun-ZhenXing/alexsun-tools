@@ -12,9 +12,8 @@ const editorRight = shallowRef<MonacoEditor.IStandaloneCodeEditor | null>(null)
 const dark = useDark()
 const colorMode = useColorMode()
 
-const isDark = computed<boolean>(() => colorMode.value === 'dark' || colorMode.preference === 'system' && dark.value)
+const isDark = computed<boolean>(() => colorMode.value === 'dark' || (colorMode.preference === 'system' && dark.value))
 
-// @ts-expect-error environment variable injected by Vite
 if (!import.meta.env.SSR) {
   useResizeObserver(window.document.body, () => {
     setTimeout(() => {

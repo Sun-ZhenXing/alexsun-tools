@@ -11,7 +11,7 @@ const result = ref('')
 const dark = useDark()
 const colorMode = useColorMode()
 
-const isDark = computed<boolean>(() => colorMode.value === 'dark' || colorMode.preference === 'system' && dark.value)
+const isDark = computed<boolean>(() => colorMode.value === 'dark' || (colorMode.preference === 'system' && dark.value))
 
 const editorLeft = shallowRef<MonacoEditor.IStandaloneCodeEditor | null>(null)
 const editorRight = shallowRef<MonacoEditor.IStandaloneCodeEditor | null>(null)
@@ -31,13 +31,11 @@ function update() {
     const json = JSON.parse(value.value)
     const r = JSONPath({ path: path.value, json })
     result.value = JSON.stringify(r, null, tabLength.value)
-  }
-  catch (e: any) {
+  } catch (e: any) {
     result.value = e.message
   }
 }
 
-// @ts-expect-error environment variable injected by Vite
 if (!import.meta.env.SSR) {
   useResizeObserver(window.document.body, () => {
     setTimeout(() => {

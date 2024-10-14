@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const locale = useGlobalLocale()
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - Alex toolbox` : 'Alex toolbox'
@@ -12,7 +13,7 @@ useHead({
 })
 
 onMounted(() => {
-  updateDayjsI18n()
+  updateDayjsI18n(locale.value)
 })
 </script>
 
